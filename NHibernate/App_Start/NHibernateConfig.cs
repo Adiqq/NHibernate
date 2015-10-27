@@ -4,6 +4,7 @@ using NHibernate.AspNet.Identity.Helpers;
 using NHibernate.Cfg;
 using NHibernate.Models;
 using NHibernate.Tool.hbm2ddl;
+using NHibernateTest.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,7 @@ namespace NHibernate.App_Start
                     //c => c.FromAppSetting("connectionString")
                     @"Data Source=ADWA;Initial Catalog=test;Integrated Security=True"
                     ))
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Store>())
                 .ExposeConfiguration(cfg =>
                 {
                     cfg.AddDeserializedMapping(
@@ -39,6 +41,7 @@ namespace NHibernate.App_Start
                     new SchemaExport(cfg)
                     .Create(false, true);
                     */
+                    new SchemaUpdate(cfg).Execute(false, true);
                 });
             return configuration;
         }
