@@ -1,14 +1,9 @@
 ﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate.AspNet.Identity.Helpers;
-using NHibernate.Cfg;
 using NHibernate.Models;
 using NHibernate.Tool.hbm2ddl;
 using NHibernateTest.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace NHibernate.App_Start
 {

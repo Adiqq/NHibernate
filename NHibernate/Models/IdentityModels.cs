@@ -1,7 +1,7 @@
-﻿using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using NHibernate.AspNet.Identity;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace NHibernate.Models
 {

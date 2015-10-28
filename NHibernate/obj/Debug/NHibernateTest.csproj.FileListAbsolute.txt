@@ -78,6 +78,6 @@ C:\Projekty\NHibernate\NHibernate\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Projekty\NHibernate\NHibernate\bin\Microsoft.Owin.Security.Google.xml
 C:\Projekty\NHibernate\NHibernate\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Projekty\NHibernate\NHibernate\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Projekty\NHibernate\NHibernate\obj\Debug\NHibernateTest.csprojResolveAssemblyReference.cache
 C:\Projekty\NHibernate\NHibernate\obj\Debug\NHibernateTest.dll
 C:\Projekty\NHibernate\NHibernate\obj\Debug\NHibernateTest.pdb
-C:\Projekty\NHibernate\NHibernate\obj\Debug\NHibernateTest.csprojResolveAssemblyReference.cache
