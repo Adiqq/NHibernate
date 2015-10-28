@@ -1,5 +1,5 @@
 ﻿using NHibernate;
-using NHibernateTest.Models;
+using NHibernateTest.DAL.Models;
 using NHibernateTest.ViewModels;
 using System.Linq;
 using System.Web.Mvc;
@@ -108,11 +108,15 @@ namespace NHibernateTest.Controllers
         {
             if (ModelState.IsValid)
             {
-                var product = _session.QueryOver<Product>().Where(x => x.Id == id).SingleOrDefault();
-                product.Name = model.Name;
-                product.Price = model.Price;
-                _session.SaveOrUpdate(product);
-                return RedirectToAction("Index");
+                using (ITransaction transaction = _session.BeginTransaction())
+                {
+                    var product = _session.QueryOver<Product>().Where(x => x.Id == id).SingleOrDefault();
+                    product.Name = model.Name;
+                    product.Price = model.Price;
+                    _session.SaveOrUpdate(product);
+                    transaction.Commit();
+                    return RedirectToAction("Index");
+                }
             }
             else
             {

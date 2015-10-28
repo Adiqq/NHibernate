@@ -1,4 +1,4 @@
-﻿namespace NHibernateTest.Models
+﻿namespace NHibernateTest.DAL.Models
 {
     public class Employee
     {

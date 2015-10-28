@@ -37,6 +37,7 @@ C:\Projekty\NHibernate\NHibernate\bin\Microsoft.Web.Infrastructure.dll
 C:\Projekty\NHibernate\NHibernate\bin\Newtonsoft.Json.dll
 C:\Projekty\NHibernate\NHibernate\bin\NHibernate.AspNet.Identity.dll
 C:\Projekty\NHibernate\NHibernate\bin\NHibernate.dll
+C:\Projekty\NHibernate\NHibernate\bin\NHibernateTest.DAL.dll
 C:\Projekty\NHibernate\NHibernate\bin\Owin.dll
 C:\Projekty\NHibernate\NHibernate\bin\System.Web.Helpers.dll
 C:\Projekty\NHibernate\NHibernate\bin\System.Web.Mvc.dll
@@ -47,6 +48,7 @@ C:\Projekty\NHibernate\NHibernate\bin\System.Web.WebPages.dll
 C:\Projekty\NHibernate\NHibernate\bin\System.Web.WebPages.Razor.dll
 C:\Projekty\NHibernate\NHibernate\bin\WebActivatorEx.dll
 C:\Projekty\NHibernate\NHibernate\bin\WebGrease.dll
+C:\Projekty\NHibernate\NHibernate\bin\NHibernateTest.DAL.pdb
 C:\Projekty\NHibernate\NHibernate\bin\FluentNHibernate.pdb
 C:\Projekty\NHibernate\NHibernate\bin\FluentNHibernate.xml
 C:\Projekty\NHibernate\NHibernate\bin\Iesi.Collections.xml

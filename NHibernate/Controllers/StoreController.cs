@@ -1,5 +1,5 @@
 ﻿using NHibernate;
-using NHibernateTest.Models;
+using NHibernateTest.DAL.Models;
 using System.Web.Mvc;
 
 namespace NHibernateTest.Controllers
@@ -84,9 +84,13 @@ namespace NHibernateTest.Controllers
         {
             try
             {
-                // TODO: Add update logic here
-                _session.SaveOrUpdate(model);
-                return RedirectToAction("Index");
+                using (ITransaction transaction = _session.BeginTransaction())
+                {
+                    // TODO: Add update logic here
+                    _session.SaveOrUpdate(model);
+                    transaction.Commit();
+                    return RedirectToAction("Index");
+                }
             }
             catch
             {

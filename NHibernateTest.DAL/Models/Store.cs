@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace NHibernateTest.Models
+namespace NHibernateTest.DAL.Models
 {
     public class Store
     {

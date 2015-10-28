@@ -1,6 +1,6 @@
 ﻿using FluentNHibernate.Mapping;
 
-namespace NHibernateTest.Models.Mappings
+namespace NHibernateTest.DAL.Models.Mappings
 {
     public class ProductMap : ClassMap<Product>
     {

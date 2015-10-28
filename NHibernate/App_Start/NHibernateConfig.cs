@@ -3,7 +3,7 @@ using FluentNHibernate.Cfg.Db;
 using NHibernate.AspNet.Identity.Helpers;
 using NHibernate.Models;
 using NHibernate.Tool.hbm2ddl;
-using NHibernateTest.Models;
+using NHibernateTest.DAL.Models;
 
 namespace NHibernate.App_Start
 {

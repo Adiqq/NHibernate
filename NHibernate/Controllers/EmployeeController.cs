@@ -1,5 +1,5 @@
 ﻿using NHibernate;
-using NHibernateTest.Models;
+using NHibernateTest.DAL.Models;
 using NHibernateTest.ViewModels;
 using System.Web.Mvc;
 
