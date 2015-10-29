@@ -3,7 +3,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using NHibernate.AspNet.Identity;
-using NHibernate.Models;
+using NHibernateTest.Domain.Entities;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;

@@ -1,8 +1,8 @@
 ﻿using System.Web.Mvc;
 
-namespace NHibernate.Controllers
+namespace NHibernateTest.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult About()
         {

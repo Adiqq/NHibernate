@@ -1,17 +1,17 @@
-﻿using NHibernate;
-using NHibernateTest.DAL.Models;
-using NHibernateTest.ViewModels;
+﻿using NHibernateTest.Domain.Entities;
+using NHibernateTest.Domain.Services;
+using NHibernateTest.Models;
 using System.Web.Mvc;
 
 namespace NHibernateTest.Controllers
 {
-    public class EmployeeController : Controller
+    public class EmployeeController : BaseController
     {
-        private readonly ISession _session;
+        private readonly IEmployeeService _employeeService;
 
-        public EmployeeController(ISession session)
+        public EmployeeController(IEmployeeService employeeService)
         {
-            _session = session;
+            _employeeService = employeeService;
         }
 
         // GET: Employee/Create
@@ -27,19 +27,13 @@ namespace NHibernateTest.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (ITransaction transaction = _session.BeginTransaction())
+                var employee = new Employee
                 {
-                    var store = _session.QueryOver<Store>().Where(x => x.Id == model.StoreId).SingleOrDefault();
-                    var employee = new Employee
-                    {
-                        FirstName = model.FirstName,
-                        LastName = model.LastName
-                    };
-                    store.AddEmployee(employee);
-                    _session.SaveOrUpdate(store);
-                    transaction.Commit();
-                    return RedirectToAction("Index", "Store", new { id = model.Id });
-                }
+                    FirstName = model.FirstName,
+                    LastName = model.LastName
+                };
+                _employeeService.CreateForStore(employee, model.StoreId);
+                return RedirectToAction("Index", "Store", new { id = model.Id });
             }
             else
             {
@@ -50,7 +44,7 @@ namespace NHibernateTest.Controllers
         // GET: Employee/Delete/5
         public ActionResult Delete(int id)
         {
-            var model = _session.QueryOver<Employee>().Where(x => x.Id == id).SingleOrDefault();
+            var model = _employeeService.GetById(id);
             var viewModel = new EmployeeViewModel() { FirstName = model.FirstName, Id = id, LastName = model.LastName, StoreId = model.Store.Id };
             return View(viewModel);
         }
@@ -61,13 +55,8 @@ namespace NHibernateTest.Controllers
         {
             try
             {
-                using (ITransaction transaction = _session.BeginTransaction())
-                {
-                    _session.Delete(id);
-                    transaction.Commit();
-
-                    return RedirectToAction("Index");
-                }
+                _employeeService.Delete(id);
+                return RedirectToAction("Index");
             }
             catch
             {
@@ -78,7 +67,7 @@ namespace NHibernateTest.Controllers
         // GET: Employee/Details/5
         public ActionResult Details(int id)
         {
-            var model = _session.QueryOver<Employee>().Where(x => x.Id == id).SingleOrDefault();
+            var model = _employeeService.GetById(id);
             var viewModel = new EmployeeViewModel() { FirstName = model.FirstName, Id = id, LastName = model.LastName, StoreId = model.Store.Id };
             return View(viewModel);
         }
@@ -86,7 +75,7 @@ namespace NHibernateTest.Controllers
         // GET: Employee/Edit/5
         public ActionResult Edit(int id)
         {
-            var model = _session.QueryOver<Employee>().Where(x => x.Id == id).SingleOrDefault();
+            var model = _employeeService.GetById(id);
             var viewModel = new EmployeeViewModel() { FirstName = model.FirstName, Id = id, LastName = model.LastName, StoreId = model.Store.Id };
             return View(viewModel);
         }
@@ -97,10 +86,10 @@ namespace NHibernateTest.Controllers
         {
             if (ModelState.IsValid)
             {
-                var employee = _session.QueryOver<Employee>().Where(x => x.Id == id).SingleOrDefault();
+                var employee = _employeeService.GetById(id);
                 employee.FirstName = model.FirstName;
                 employee.LastName = model.LastName;
-                _session.SaveOrUpdate(employee);
+                _employeeService.Update(employee);
                 return RedirectToAction("Details", "Store", new { id = model.Id });
             }
             else

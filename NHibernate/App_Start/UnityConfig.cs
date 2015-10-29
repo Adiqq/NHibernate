@@ -2,8 +2,14 @@ using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using Microsoft.Practices.Unity;
 using NHibernate.AspNet.Identity;
-using NHibernate.Models;
+using NHibernateTest.DAL.Helpers;
+using NHibernateTest.DAL.Repositories;
+using NHibernateTest.Domain.Entities;
+using NHibernateTest.Domain.Helpers;
+using NHibernateTest.Domain.Repositories;
+using NHibernateTest.Domain.Services;
 using System;
+using System.Reflection;
 using System.Web;
 
 namespace NHibernate.App_Start
@@ -32,32 +38,23 @@ namespace NHibernate.App_Start
 
         #endregion Unity Container
 
-        /// <summary>Registers the type mappings with the Unity container.</summary>
-        /// <param name="container">The unity container to configure.</param>
-        /// <remarks>There is no need to register concrete types such as controllers or API controllers (unless you want to
-        /// change the defaults), as Unity allows resolving a concrete type even if it was not previously registered.</remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
-            // NOTE: To load from web.config uncomment the line below. Make sure to add a Microsoft.Practices.Unity.Configuration to the using statements.
-            // container.LoadConfiguration();
+            container.RegisterType<IUnitOfWork, UnitOfWork>(new PerRequestLifetimeManager());
+            container.RegisterType(typeof(IRepository<>), typeof(Repository<>));
 
-            // TODO: Register your types here
-            // container.RegisterType<IProductRepository, ProductRepository>();
-            container.RegisterType<ISession>(
-                new PerRequestLifetimeManager(),
-                new InjectionFactory(c =>
-                {
-                    ISessionFactory sessionFactory = NHibernateConfig.CreateSessionFactory();
-                    return sessionFactory.OpenSession();
-                }
-                    ));
             container.RegisterType<IAuthenticationManager>(
                 new InjectionFactory(c => HttpContext.Current.GetOwinContext().Authentication));
 
-            container.RegisterType<IUserStore<ApplicationUser>, UserStore<ApplicationUser>>(
-                new InjectionConstructor(typeof(ISession)));
+            container.RegisterType<IUserStore<ApplicationUser>>(
+    new InjectionFactory(x =>
+    {
+        return new UserStore<ApplicationUser>(new UnitOfWork().Session);
+    }));
             container.RegisterType<ApplicationSignInManager>();
             container.RegisterType<ApplicationUserManager>();
+
+            container.RegisterTypes(AllClasses.FromAssemblies(Assembly.GetAssembly(typeof(IProductService))), WithMappings.FromMatchingInterface, WithName.Default, WithLifetime.Transient);
         }
     }
 }

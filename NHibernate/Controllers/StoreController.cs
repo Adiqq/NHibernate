@@ -1,16 +1,17 @@
-﻿using NHibernate;
-using NHibernateTest.DAL.Models;
+﻿using NHibernateTest.Domain.Entities;
+using NHibernateTest.Domain.Services;
+using System;
 using System.Web.Mvc;
 
 namespace NHibernateTest.Controllers
 {
-    public class StoreController : Controller
+    public class StoreController : BaseController
     {
-        private readonly ISession _session;
+        private readonly IStoreService _storeService;
 
-        public StoreController(ISession session)
+        public StoreController(IStoreService storeService)
         {
-            _session = session;
+            _storeService = storeService;
         }
 
         // GET: Store/Create
@@ -25,7 +26,7 @@ namespace NHibernateTest.Controllers
         {
             if (ModelState.IsValid)
             {
-                _session.SaveOrUpdate(model);
+                _storeService.Create(model);
                 return RedirectToAction("Index");
             }
             else
@@ -37,8 +38,7 @@ namespace NHibernateTest.Controllers
         // GET: Store/Delete/5
         public ActionResult Delete(int id)
         {
-            var result = _session.QueryOver<Store>().
-                Where(x => x.Id == id).SingleOrDefault();
+            var result = _storeService.GetById(id);
             return View(result);
         }
 
@@ -48,13 +48,8 @@ namespace NHibernateTest.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-                using (ITransaction transaction = _session.BeginTransaction())
-                {
-                    _session.Delete(model);
-                    transaction.Commit();
-                    return RedirectToAction("Index");
-                }
+                _storeService.Delete(id);
+                return RedirectToAction("Index");
             }
             catch
             {
@@ -65,16 +60,14 @@ namespace NHibernateTest.Controllers
         // GET: Store/Details/5
         public ActionResult Details(int id)
         {
-            var result = _session.QueryOver<Store>().
-                Where(x => x.Id == id).SingleOrDefault();
+            var result = _storeService.GetEagerById(id);
             return View(result);
         }
 
         // GET: Store/Edit/5
         public ActionResult Edit(int id)
         {
-            var result = _session.QueryOver<Store>().
-                Where(x => x.Id == id).SingleOrDefault();
+            var result = _storeService.GetById(id);
             return View(result);
         }
 
@@ -84,15 +77,12 @@ namespace NHibernateTest.Controllers
         {
             try
             {
-                using (ITransaction transaction = _session.BeginTransaction())
-                {
-                    // TODO: Add update logic here
-                    _session.SaveOrUpdate(model);
-                    transaction.Commit();
-                    return RedirectToAction("Index");
-                }
+                var store = _storeService.GetById(id);
+                store.Name = model.Name;
+                _storeService.Update(store);
+                return RedirectToAction("Index");
             }
-            catch
+            catch (Exception e)
             {
                 return View();
             }
@@ -101,7 +91,7 @@ namespace NHibernateTest.Controllers
         // GET: Store
         public ActionResult Index()
         {
-            var stores = _session.QueryOver<Store>().List();
+            var stores = _storeService.GetAll();
             return View(stores);
         }
     }

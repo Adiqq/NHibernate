@@ -1,3 +1,4 @@
+C:\Projekty\NHibernate\NHibernate\bin\Antlr3.Runtime.pdb
 C:\Projekty\NHibernate\NHibernate\bin\roslyn\csc.exe
 C:\Projekty\NHibernate\NHibernate\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Projekty\NHibernate\NHibernate\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -38,6 +39,7 @@ C:\Projekty\NHibernate\NHibernate\bin\Newtonsoft.Json.dll
 C:\Projekty\NHibernate\NHibernate\bin\NHibernate.AspNet.Identity.dll
 C:\Projekty\NHibernate\NHibernate\bin\NHibernate.dll
 C:\Projekty\NHibernate\NHibernate\bin\NHibernateTest.DAL.dll
+C:\Projekty\NHibernate\NHibernate\bin\NHibernateTest.Domain.dll
 C:\Projekty\NHibernate\NHibernate\bin\Owin.dll
 C:\Projekty\NHibernate\NHibernate\bin\System.Web.Helpers.dll
 C:\Projekty\NHibernate\NHibernate\bin\System.Web.Mvc.dll
@@ -49,6 +51,7 @@ C:\Projekty\NHibernate\NHibernate\bin\System.Web.WebPages.Razor.dll
 C:\Projekty\NHibernate\NHibernate\bin\WebActivatorEx.dll
 C:\Projekty\NHibernate\NHibernate\bin\WebGrease.dll
 C:\Projekty\NHibernate\NHibernate\bin\NHibernateTest.DAL.pdb
+C:\Projekty\NHibernate\NHibernate\bin\NHibernateTest.Domain.pdb
 C:\Projekty\NHibernate\NHibernate\bin\FluentNHibernate.pdb
 C:\Projekty\NHibernate\NHibernate\bin\FluentNHibernate.xml
 C:\Projekty\NHibernate\NHibernate\bin\Iesi.Collections.xml
@@ -67,7 +70,6 @@ C:\Projekty\NHibernate\NHibernate\bin\System.Web.Razor.xml
 C:\Projekty\NHibernate\NHibernate\bin\System.Web.WebPages.xml
 C:\Projekty\NHibernate\NHibernate\bin\System.Web.WebPages.Deployment.xml
 C:\Projekty\NHibernate\NHibernate\bin\System.Web.WebPages.Razor.xml
-C:\Projekty\NHibernate\NHibernate\bin\Antlr3.Runtime.pdb
 C:\Projekty\NHibernate\NHibernate\bin\Newtonsoft.Json.xml
 C:\Projekty\NHibernate\NHibernate\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Projekty\NHibernate\NHibernate\bin\Microsoft.AspNet.Identity.Owin.xml

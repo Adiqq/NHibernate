@@ -2,7 +2,7 @@
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using NHibernate.Models;
+using NHibernateTest.Domain.Entities;
 using Owin;
 using System;
 
