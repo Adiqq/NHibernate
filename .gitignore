@@ -1,0 +1,9 @@
+/NHibernate/bin
+/NHibernate/obj
+/NHibernateTest.DAL/obj
+/NHibernateTest.DAL/bin
+/NHibernateTest.Domain/obj
+/NHibernateTest.Domain/bin
+/NHibernateTest.Tests/obj
+/NHibernateTest.Tests/bin
+/packages
