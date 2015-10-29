@@ -2,7 +2,7 @@
 using NHibernateTest.Domain.Entities;
 using System;
 
-namespace NHibernateTest.DAL.Helpers
+namespace NHibernateTest.Data.Helpers
 {
     public class AutomappingConfiguration : DefaultAutomappingConfiguration
     {

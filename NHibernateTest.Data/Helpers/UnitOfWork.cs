@@ -4,11 +4,11 @@ using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.AspNet.Identity.Helpers;
 using NHibernate.Tool.hbm2ddl;
-using NHibernateTest.DAL.MappingOverrides;
+using NHibernateTest.Data.MappingOverrides;
 using NHibernateTest.Domain.Entities;
 using NHibernateTest.Domain.Helpers;
 
-namespace NHibernateTest.DAL.Helpers
+namespace NHibernateTest.Data.Helpers
 {
     public class UnitOfWork : IUnitOfWork
     {

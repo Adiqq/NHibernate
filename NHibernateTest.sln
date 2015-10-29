@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateTest", "NHibernate\NHibernateTest.csproj", "{B9DD8E2F-93A3-45CE-8060-250613B5A39E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateTest.Data", "NHibernateTest.DAL\NHibernateTest.Data.csproj", "{5E676DF6-C0C8-4B8C-BB23-0E8774D5EC04}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateTest.Data", "NHibernateTest.Data\NHibernateTest.Data.csproj", "{5E676DF6-C0C8-4B8C-BB23-0E8774D5EC04}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateTest.Domain", "NHibernateTest.Domain\NHibernateTest.Domain.csproj", "{7171CD18-D0D1-4CEA-B167-E39A0E2A11B7}"
 EndProject

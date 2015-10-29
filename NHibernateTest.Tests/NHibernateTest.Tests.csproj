@@ -72,7 +72,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NHibernateTest.DAL\NHibernateTest.Data.csproj">
+    <ProjectReference Include="..\NHibernateTest.Data\NHibernateTest.Data.csproj">
       <Project>{5e676df6-c0c8-4b8c-bb23-0e8774d5ec04}</Project>
       <Name>NHibernateTest.Data</Name>
     </ProjectReference>

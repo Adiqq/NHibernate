@@ -2,7 +2,7 @@
 using FluentNHibernate.Automapping.Alterations;
 using NHibernateTest.Domain.Entities;
 
-namespace NHibernateTest.DAL.MappingOverrides
+namespace NHibernateTest.Data.MappingOverrides
 {
     public class StoreOverrides : IAutoMappingOverride<Store>
     {

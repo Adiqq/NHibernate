@@ -1,12 +1,12 @@
 ﻿using NHibernate;
 using NHibernate.Linq;
-using NHibernateTest.DAL.Helpers;
+using NHibernateTest.Data.Helpers;
 using NHibernateTest.Domain.Entities;
 using NHibernateTest.Domain.Helpers;
 using NHibernateTest.Domain.Repositories;
 using System.Linq;
 
-namespace NHibernateTest.DAL.Repositories
+namespace NHibernateTest.Data.Repositories
 {
     public class Repository<T> : IRepository<T> where T : IEntity
     {
