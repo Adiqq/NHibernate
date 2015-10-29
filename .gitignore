@@ -8,3 +8,5 @@
 /NHibernateTest.Tests/bin
 /packages
 /TestResults
+/NHibernateTest.Data/bin
+/NHibernateTest.Data/obj
