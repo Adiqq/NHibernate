@@ -6,7 +6,7 @@ using NHibernateTest.Domain.Entities;
 using Owin;
 using System;
 
-namespace NHibernate
+namespace NHibernateTest
 {
     public partial class Startup
     {

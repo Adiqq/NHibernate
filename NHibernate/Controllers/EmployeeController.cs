@@ -1,4 +1,5 @@
-﻿using NHibernateTest.Domain.Entities;
+﻿using AutoMapper;
+using NHibernateTest.Domain.Entities;
 using NHibernateTest.Domain.Services;
 using NHibernateTest.Models;
 using System.Web.Mvc;
@@ -27,11 +28,7 @@ namespace NHibernateTest.Controllers
         {
             if (ModelState.IsValid)
             {
-                var employee = new Employee
-                {
-                    FirstName = model.FirstName,
-                    LastName = model.LastName
-                };
+                var employee = Mapper.Map(model, new Employee());
                 _employeeService.CreateForStore(employee, model.StoreId);
                 return RedirectToAction("Index", "Store", new { id = model.Id });
             }
@@ -45,7 +42,7 @@ namespace NHibernateTest.Controllers
         public ActionResult Delete(int id)
         {
             var model = _employeeService.GetById(id);
-            var viewModel = new EmployeeViewModel() { FirstName = model.FirstName, Id = id, LastName = model.LastName, StoreId = model.Store.Id };
+            var viewModel = Mapper.Map<EmployeeViewModel>(model);
             return View(viewModel);
         }
 
@@ -68,7 +65,7 @@ namespace NHibernateTest.Controllers
         public ActionResult Details(int id)
         {
             var model = _employeeService.GetById(id);
-            var viewModel = new EmployeeViewModel() { FirstName = model.FirstName, Id = id, LastName = model.LastName, StoreId = model.Store.Id };
+            var viewModel = Mapper.Map<EmployeeViewModel>(model);
             return View(viewModel);
         }
 
@@ -76,7 +73,7 @@ namespace NHibernateTest.Controllers
         public ActionResult Edit(int id)
         {
             var model = _employeeService.GetById(id);
-            var viewModel = new EmployeeViewModel() { FirstName = model.FirstName, Id = id, LastName = model.LastName, StoreId = model.Store.Id };
+            var viewModel = Mapper.Map<EmployeeViewModel>(model);
             return View(viewModel);
         }
 
@@ -87,8 +84,7 @@ namespace NHibernateTest.Controllers
             if (ModelState.IsValid)
             {
                 var employee = _employeeService.GetById(id);
-                employee.FirstName = model.FirstName;
-                employee.LastName = model.LastName;
+                Mapper.Map(model, employee);
                 _employeeService.Update(employee);
                 return RedirectToAction("Details", "Store", new { id = model.Id });
             }

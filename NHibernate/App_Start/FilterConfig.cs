@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace NHibernate
+namespace NHibernateTest
 {
     public class FilterConfig
     {

@@ -1,13 +1,12 @@
 ﻿using Microsoft.Owin;
 using Microsoft.Practices.Unity.Mvc;
-using NHibernate.App_Start;
 using Owin;
 using System.Linq;
 using System.Web.Mvc;
 
-[assembly: OwinStartupAttribute(typeof(NHibernate.Startup))]
+[assembly: OwinStartupAttribute(typeof(NHibernateTest.Startup))]
 
-namespace NHibernate
+namespace NHibernateTest
 {
     public partial class Startup
     {

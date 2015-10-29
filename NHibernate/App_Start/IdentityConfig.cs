@@ -2,13 +2,14 @@
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
+using NHibernate;
 using NHibernate.AspNet.Identity;
 using NHibernateTest.Domain.Entities;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace NHibernate
+namespace NHibernateTest
 {
     // Configure the application sign-in manager which is used in this application.
     public class ApplicationSignInManager : SignInManager<ApplicationUser, string>

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using NHibernate;
 using NHibernate.Models;
 using NHibernateTest.Domain.Entities;
 using System.Linq;

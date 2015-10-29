@@ -1,7 +1,8 @@
-﻿using NHibernateTest.Domain.Entities;
+﻿using AutoMapper;
+using NHibernateTest.Domain.Entities;
 using NHibernateTest.Domain.Services;
 using NHibernateTest.Models;
-using System.Linq;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace NHibernateTest.Controllers
@@ -28,7 +29,7 @@ namespace NHibernateTest.Controllers
         {
             if (ModelState.IsValid)
             {
-                var product = new Product() { Name = model.Name, Price = model.Price };
+                var product = Mapper.Map(model, new Product());
 
                 if (model.StoreId != 0)
                 {
@@ -51,7 +52,7 @@ namespace NHibernateTest.Controllers
         public ActionResult Delete(int id)
         {
             var product = _productService.GetById(id);
-            var viewModel = new ProductViewModel { Id = product.Id, Name = product.Name, Price = product.Price };
+            var viewModel = Mapper.Map<ProductViewModel>(product);
             return View(viewModel);
         }
 
@@ -74,7 +75,7 @@ namespace NHibernateTest.Controllers
         public ActionResult Details(int id)
         {
             var product = _productService.GetById(id);
-            var viewModel = new ProductViewModel { Id = product.Id, Name = product.Name, Price = product.Price };
+            var viewModel = Mapper.Map<ProductViewModel>(product);
             return View(viewModel);
         }
 
@@ -82,7 +83,7 @@ namespace NHibernateTest.Controllers
         public ActionResult Edit(int id)
         {
             var product = _productService.GetById(id);
-            var viewModel = new ProductViewModel { Id = product.Id, Name = product.Name, Price = product.Price };
+            var viewModel = Mapper.Map<ProductViewModel>(product);
             return View(viewModel);
         }
 
@@ -93,8 +94,7 @@ namespace NHibernateTest.Controllers
             if (ModelState.IsValid)
             {
                 var product = _productService.GetById(id);
-                product.Name = model.Name;
-                product.Price = model.Price;
+                Mapper.Map(model, product);
                 _productService.Update(product);
 
                 return RedirectToAction("Index");
@@ -108,7 +108,7 @@ namespace NHibernateTest.Controllers
         public ActionResult Index()
         {
             var products = _productService.GetAll();
-            var viewmodels = products.Select(x => new ProductViewModel { Id = x.Id, Name = x.Name, Price = x.Price });
+            var viewmodels = Mapper.Map<IList<ProductViewModel>>(products);
             return View(viewmodels);
         }
     }

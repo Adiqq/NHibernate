@@ -12,7 +12,7 @@ using System;
 using System.Reflection;
 using System.Web;
 
-namespace NHibernate.App_Start
+namespace NHibernateTest
 {
     /// <summary>
     /// Specifies the Unity configuration for the main container.
